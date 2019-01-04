@@ -15,7 +15,7 @@ git clone git@github.com:rederlo/basic-micro-service.git
 ├── /src/                      # Código fonte do Microsserviço
 │   ├── /config/               # Configurações (Auth, Aws, etc...)
 │   ├── /controllers/          # Controllers
-│   ├── /database/             # Mongo ou Mysql, volumes docker
+│   ├── /database/             # Definição Mongoose
 │   ├── /middlewares/          # Definição de middlewares 
 │   ├── /models/               # Definição de modelos (Mongoose ou SQL) 
 ```
