@@ -1,0 +1,30 @@
+version: '2.1'
+
+services:
+  authentication:
+    container_name: basic-micro-service
+    build: .
+    volumes:
+      - .:/var/www
+    environment:
+      NODE_ENV: development
+      MONGO_URI: "mongodb://mongodb:27017/db_name"
+    command: >
+      sh -c 'npm install && npm start'  
+    ports:
+      - 3000:3000
+    depends_on:
+        - mongodb
+  mongodb:
+      image: mongo
+      environment:
+        - MONGO_DATA_DIR=/data/db
+        - MONGO_LOG_DIR=/dev/null
+      volumes:
+        - ./database:/data
+      ports:
+          - 27017:27017
+      command: mongod --smallfiles --logpath=/dev/null
+volumes:
+  database:
+    driver: "local"            
